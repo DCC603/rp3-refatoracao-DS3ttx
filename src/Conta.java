@@ -21,13 +21,13 @@ public class Conta {
     }
 
     public void deposito(int quantia){
-        Operacao op = new Operacao('d', quantia);
+        Operacao op = Operacao.deposito(quantia);
         this.operacoes.add(op);
         this.saldo += quantia;
     }
 
     public void saque(int quantia){
-        Operacao op = new Operacao('s', quantia);
+        Operacao op = Operacao.saque(quantia);
         this.operacoes.add(op);
         this.saldo -= quantia;
     }
