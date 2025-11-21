@@ -20,4 +20,8 @@ public class Cliente {
 	public String getTelefone() {
 		return telefone;
 	}
+	
+	public String toString() {
+		return String.format("CPF: %s\nNome: %s\nTelefone: %s", this.cpf, this.nome, this.telefone);
+	}
 }

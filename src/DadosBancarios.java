@@ -20,4 +20,8 @@ public class DadosBancarios {
 	public String getNomeGerente() {
 		return nomeGerente;
 	}
+	
+	public String toString(){
+		return String.format("Ag.: %d\nConta: %d\nGerente: %s", this.numAgencia, this.numConta, this.nomeGerente);
+	}
 }

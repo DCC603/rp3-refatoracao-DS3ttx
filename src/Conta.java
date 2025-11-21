@@ -31,28 +31,29 @@ public class Conta {
         this.operacoes.add(op);
         this.saldo -= quantia;
     }
-
-    public String toString() {
-        // TODO(#4) REFATORAR: Esses dados não estão relacionados a conta
-        String dadosCliente = String.format("CPF: %s\nNome: %s\nTelefone: %s",
-                this.cliente.getCPF(), this.cliente.getNome(), this.cliente.getTelefone());
-
-        // TODO(#4) REFATORAR: Esses dados não estão relacinados a conta
-        String dadosConta = String.format("Ag.: %d\nConta: %d\nGerente: %s\nSaldo: %.2f",
-                this.dados_bancarios.getNumAgencia(), this.dados_bancarios.getNumConta(),
-                this.dados_bancarios.getNomeGerente(), this.saldo);
-
-        // TODO(#5) REFATORAR: Essa operação não deveria estar sendo realizada neste método
+    
+    public String operationsToString(){
         String dadosExtrato = "";
         for(Operacao op : this.operacoes) {
             dadosExtrato += op.toString() + "\n";
         }
+        return dadosExtrato;
+    }
+
+    public String toString() {
+        String dadosCliente = this.cliente.toString();
+        String dadosConta = this.dados_bancarios.toString();
+        String saldo = String.format("Saldo: %.2f", this.saldo);
+        String dadosExtrato = this.operationsToString();
+        
 
         return "-----CLIENTE-----\n" +
                 dadosCliente +
                 "\n\n" +
                 "-----CONTA-----\n" +
                 dadosConta +
+                "\n" +
+                saldo +
                 "\n\n" +
                 "-----EXTRATO-----\n" +
                 dadosExtrato +
